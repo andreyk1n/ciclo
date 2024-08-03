@@ -1,0 +1,31 @@
+.products-col {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        @include adaptiveValue('gap', 30px, 20px);
+    }
+
+    &__title {
+        @include adaptiveValue('font-size', 30px, 22px);
+        color: #1C1F25;
+        font-weight: bold;
+        @include adaptiveValue('margin-bottom', 20px, 10px);
+    }
+
+    &__text {
+        @include adaptiveValue('font-size', 25px, 18px);
+    }
+
+    &__icon {
+        img {
+            @include adaptiveValue('width', 60px, 30px);
+            @include adaptiveValue('height', 60px, 30px);
+            @include adaptiveValue('min-width', 60px, 30px);
+        }
+    }
+
+}

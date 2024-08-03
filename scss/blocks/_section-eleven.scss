@@ -1,0 +1,25 @@
+.section__eleven {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .section__content {
+        max-width: 1260px;
+        max-width: 90%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include adaptiveValue('gap', 60px, 20px);
+
+        @media (max-width: 1200px) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    .section__body {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+}

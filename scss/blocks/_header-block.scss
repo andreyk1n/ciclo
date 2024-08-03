@@ -1,0 +1,31 @@
+.header-block {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue('gap', 40px, 20px);
+
+    &__suptitle, &__text {
+        @include adaptiveValue('font-size', 25px, 18px);
+        color: #6A6E77;
+    }
+
+    &__suptitle.lite {
+        color: #E3E6EC;
+    }
+
+    &__title {
+        @include adaptiveValue('font-size', 60px, 28px);
+        color: #1C1F25;
+        font-weight: bold;
+    }
+    &__title.lite {
+        color: #FFFFFF;
+    }
+
+    &__text {
+        @include adaptiveValue('font-size', 25px, 18px);
+        color: #6A6E77;
+        @include adaptiveValue('margin-top', 40px, 20px);
+    }
+
+}

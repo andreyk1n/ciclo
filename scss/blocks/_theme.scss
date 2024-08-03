@@ -1,0 +1,282 @@
+//--------------------------Налаштування теми для проектів--------------------------
+// Перед початком проекту, потрібно розібрати макет на: кольори, шрифти, розміри, стилізацію, геометрію макету, і внести потрібні данні у змінні.
+// Звичайно тему не підготуєш під усі випадки, проте можна підготувати те що необхідне для більшості сайтів.
+// Розробив - andreyk1n.
+
+
+
+//---Шрифти, розміри, кольори, сімейство---
+// Основний фоновий колір для <body>
+$bgColor: white;
+
+// Основне сімейство шрифтів проекту
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+$fontFamily: "Quicksand", sans-serif;
+
+// Початковий розмір шрифтів
+$fontSize: 14px;
+
+
+// Тривалість переходу (transition-duration) <- рекомендую використовувати якусь одну для всього проекту
+$transitionDuration: .5s;
+
+//---Кольори---
+// Стандартний колір шрифтів
+$fontColor: #6A6E77;
+
+//---Кольори для посиланнь---
+// Стандартний колір посиланнь
+$linkColor: blue;
+
+// Колір при наведені на посилання
+$linkHoverColor: magenta;
+
+// Активний колір при кліку
+$activeColor: green;
+
+// Базова тінь
+$boxShadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+// Внутрішній малий відступ
+$paddingSmall: 5px;
+
+// Внутрішній середній відступ
+$paddingMedium: 15px;
+
+// Внутрішній великий відступ
+$paddingLarge: 30px;
+
+//---Розміра тайтлів---
+// Розмір для тегу h1
+$h1FontSize: toRem(60);
+
+// Розмір для тегу h2
+$h2FontSize: toRem(60);
+
+// Розмір для тегу h3
+$h3FontSize: 20px;
+
+// Стандартний font-weight
+$mainFontWeight: 400;
+
+// Вага шрифта для h1
+$h1FontWeight: 900;
+
+// Вага шрифта для h2
+$h2FontWeight: 900;
+
+// Вага шрифта для h3
+$h3FontWeight: 700;
+
+//---Налаштування стилів кнопки з класом .button---
+// Фоновий колір кнопки
+$buttonBgColor: rgb(80, 80, 117);
+
+// Колір шрифта на кнопці
+$buttonFontColor: white;
+
+// Внутрішні відступи у кнопці --- краще застосовувати запис у скороченому форматі
+$buttonPaddings: 5px 20px;
+
+// Заокруглення кнопки
+$buttonBorderRadius: 10px;
+
+// Колір при наведенні на кнопку
+$buttonHover: lightBlue;
+
+// Колір при кліку на кнопку
+$buttonActive: rgb(16, 77, 97);
+
+
+//---Максимальна довжина обмежуючого контейнера---
+// Обмежуючий контейнер - це контейнер з класом .container - призначений для рівної геометрії сайту
+$maxWidthContainer: 1170px;
+
+// Стандартні паддінги (внутрішні відступи) в контейнері
+$paddingContainer: 15px;
+
+
+//---Адаптив---
+
+// Мобільний мікро брекпоїнт 320рх
+$mobileMicro: 320px;
+
+// Мобільний малий брекпоїнт менше 478рх
+$mobileSmall: 478px;
+
+// Мобільний середній брекпоїнт менше 576рх
+$mobileMedium: 576px;
+
+// Мобільний великий розмір менше 768рх
+$mobileLarge: 768px;
+
+// Планшет розмір до 992рх
+$tablet: 992px;
+
+// Декстоп малий до 1200рх
+$desktopSmall: 1200px;
+
+// Декстоп середній до 1440рх
+$desktopMedium: 1440px;
+
+// Декстоп великий від 1440рх
+$desktopBig: 1400px;
+
+//--------------------------Використання базових стилів із попередніх налаштуваннь--------------------------
+
+// Онулення стилів
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $bgColor;
+    color: $fontColor;
+    font-family: $fontFamily;
+    font-weight: $mainFontWeight;
+    font-size: $fontSize;
+
+}
+
+
+// Обмежуючий контейнер - цей контейнер часто зустрічається в проектах, якщо сайт має певну геометрію.
+.container {
+    max-width: $maxWidthContainer;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px
+}
+
+// Застосування стилів для посилання: колір, час анімації, активний стан.
+a {
+    color: $linkColor;
+    text-decoration: none;
+    transition-duration: $transitionDuration;
+}
+
+a:hover {
+    color: $linkHoverColor;
+}
+
+a:active {
+    color: $activeColor;
+}
+
+// Застосування стилів для кнопкки з класом .button
+.button {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $buttonBgColor;
+    transition-duration: $transitionDuration;
+    color: $buttonFontColor;
+    padding: $buttonPaddings;
+    border-radius: $buttonBorderRadius;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: $buttonHover;
+}
+
+.button:active {
+    background-color: $buttonActive;
+}
+
+
+// Розміра для основних тайтлів h1-h3, адаптив шрифта розрахуовується формулою (розмір шрифта - (розмір шрифта / n); n - можна налаштовувати під себе, як вам заманеться, формулу замінювати теж.
+
+// Розмір основних тайтлів для великих десктопних екранів
+@media (min-width: $desktopMedium) {
+    h1 {
+        font-size: $h1FontSize;
+        font-weight: $h1FontWeight;
+    }
+    
+    h2 {
+        font-size: $h2FontSize;
+        font-weight: $h2FontWeight;
+    }
+    
+    h3 {
+        font-size: $h3FontSize;
+        font-weight: $h3FontWeight;
+    }
+}
+
+// Розмір основних тайтлів для малих десктопних екранів
+@media (min-width: $desktopSmall) and (max-width: $desktopMedium) {
+    h1 {
+        font-size: $h1FontSize - ($h1FontSize / 8);
+    }
+    
+    h2 {
+        font-size: $h2FontSize - ($h2FontSize / 8);
+    }
+    
+    h3 {
+        font-size: $h3FontSize - ($h3FontSize / 8);
+    }
+}
+
+// Розмір основних тайтлів для екранів планшетного розміру
+@media (min-width: $tablet) and (max-width: $desktopSmall) {
+    h1 {
+        font-size: $h1FontSize - ($h1FontSize / 6);
+    }
+    
+    h2 {
+        font-size: $h2FontSize - ($h2FontSize / 6);
+    }
+    
+    h3 {
+        font-size: $h3FontSize - ($h3FontSize / 6);
+    }
+}
+
+// Розмір основних тайтлів для малих екранів мобільних телефонів
+@media (max-width: $tablet) {
+    h1 {
+        font-size: $h1FontSize - ($h1FontSize / 5);
+    }
+    
+    h2 {
+        font-size: $h2FontSize - ($h2FontSize / 5);
+    }
+    
+    h3 {
+        font-size: $h3FontSize - ($h3FontSize / 5);
+    }
+}
+
+
+// Базові стилі для контейнера сторінки
+html {
+    line-height: normal;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+// Загальні стилі для списків
+ol {
+    padding-left: 20px;
+    li:not(:last-child) {
+        padding-bottom: 15px;
+    }
+}
+// Розробив - andreyk1n.
+
+// Загальні стилі
+
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+    transition-duration: $transitionDuration!important;
+}

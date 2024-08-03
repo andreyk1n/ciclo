@@ -1,0 +1,54 @@
+// Базові функції шаблону.
+
+// Функція для перетворення px в rem.
+
+@function toRem($px, $current: 16) {
+    @return ($px / $current) * 1rem;
+}
+
+
+// Функція для перетворення px в em.
+@function toRem($px, $current: 16) {
+    @return ($px / $current) * 1em;
+}
+
+// Функція адаптивної одиниці властивості
+// В ній можна налаштувати коефіцієнт зменшення на кожному брекпоїнті, і брекпоїнти теж можна налаштувати
+// @mixin adaptiveValue($property, $largeScreenValue, $smallScreenValue) {
+//     #{$property}: #{$largeScreenValue};
+
+//     $breakpoints: (1200px, 992px, 768px, 576px);
+//     $scaling-factor: 0.85; // 15% зменшення
+
+//     $current-value: $largeScreenValue;
+
+//     @each $breakpoint in $breakpoints {
+//         $current-value: $current-value * $scaling-factor;
+
+//         @media (max-width: $breakpoint) {
+//             #{$property}: $current-value;
+//         }
+//     }
+// }
+
+@mixin adaptiveValue($property, $maxValue, $minValue) {
+    // Стандартні брекпоїнти
+    $breakpoints: (1200px, 992px, 768px, 576px, 480px, 360px, 320px);
+
+    // Обчислюємо кількість кроків на основі кількості breakpoints
+    $steps: length($breakpoints);
+    $step-size: ($maxValue - $minValue) / $steps;
+
+    #{$property}: #{$maxValue};
+
+    @for $i from 1 through $steps {
+        $breakpoint: nth($breakpoints, $i);
+        $current-value: $maxValue - ($step-size * $i);
+
+        @media (max-width: $breakpoint) {
+            #{$property}: $current-value;
+        }
+    }
+}
+
+
